@@ -1,39 +1,83 @@
 /* ─────────  Basis  ───────── */
 *{box-sizing:border-box;margin:0;padding:0;}
 
+:root{
+  --pink:#ff007c;
+  --cyan:#00f8ff;
+  --lime:#2aff3a;
+  --orange:#ff7b00;
+}
+
 body{
-  background:#000;                /* tiefschwarz, kein Blaustich                     */
+  background:#000;                /* tiefschwarz, kein Blaustich */
   color:#fff;
   font-family:'Poppins',sans-serif;
   line-height:1.6;
 }
 
+/* ─────────  Accessibility: Skip-Link  ───────── */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.skip-link:focus{
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:.6rem .9rem;
+  background:#111;
+  color:var(--cyan);
+  border:2px solid var(--cyan);
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,248,255,.35);
+  z-index:2000;
+}
+
 /* ─────────  Sticky-Header + Navigation  ───────── */
 header{
-  position:sticky;                /* bleibt oben kleben                              */
+  position:sticky;
   top:0;
   z-index:999;
   display:flex;
   flex-direction:column;
   align-items:center;
   padding:1rem 2rem;
-  background:rgba(0,18,28,.6);    /* leicht transparent                              */
-  backdrop-filter:blur(6px);      /* weicher Glas-Effekt                             */
+  background:rgba(0,18,28,.6);
+  backdrop-filter:blur(6px);
   box-shadow:0 2px 6px rgba(0,0,0,.35);
 }
 
 nav{margin-top:.5rem;}
 
 nav a{
-  color:#00f8ff;                  /* = var(--cyan)                                   */
+  color:var(--cyan);
   text-decoration:none;
   margin:0 .5rem;
   font-size:.9rem;
 }
 
-nav a:hover{text-shadow:0 0 6px #00f8ff;}
+nav a:hover{
+  text-shadow:0 0 6px var(--cyan);
+}
 
-/* ─────────  Hero  ───────── */
+nav a[aria-current="page"]{
+  text-shadow:0 0 8px var(--cyan);
+  border-bottom:1px solid rgba(0,248,255,.7);
+  padding-bottom:.15rem;
+}
+
+/* ─────────  Typography  ───────── */
+h1{color:var(--pink);}
+h2{color:var(--cyan);}
+h3{color:var(--lime);}
+
+/* ─────────  Optional Hero (falls du später nutzt)  ───────── */
 .hero{
   padding:4rem 2rem;
   text-align:center;
@@ -51,28 +95,7 @@ nav a:hover{text-shadow:0 0 6px #00f8ff;}
   font-size:1rem;
 }
 
-/* ─────────  Footer  ───────── */
-footer{
-  padding:1rem 2rem;
-  text-align:center;
-  background:#000;
-  font-size:.8rem;
-  color:#cda434;
-}
-
-/* ─────────  Neon-Palast-Look  ───────── */
-:root{
-  --pink:#ff007c;
-  --cyan:#00f8ff;
-  --lime:#2aff3a;
-  --orange:#ff7b00;
-}
-
-h1{color:var(--pink);}
-h2{color:var(--cyan);}
-h3{color:var(--lime);}
-
-/* Neon-Rahmen-Blöcke */
+/* ─────────  Neon-Rahmen-Blöcke  ───────── */
 .neon-block{
   margin:3rem auto;
   padding:2.5rem 1.5rem;
@@ -84,6 +107,11 @@ h3{color:var(--lime);}
   /* sofort sichtbar (Animation holen wir später per JS zurück) */
   opacity:1;
   transform:none;
+}
+
+.neon-block p{
+  margin-top:.7rem;
+  opacity:.95;
 }
 
 .neon-block::before,
@@ -112,7 +140,7 @@ h3{color:var(--lime);}
   border-bottom-right-radius:12px;
 }
 
-/* Neon-Buttons */
+/* ─────────  Neon-Buttons  ───────── */
 .button-neon{
   display:inline-block;
   margin:.3rem .6rem;
@@ -129,4 +157,13 @@ h3{color:var(--lime);}
   background:var(--pink);
   color:#000;
   box-shadow:0 0 8px var(--pink);
+}
+
+/* ─────────  Footer  ───────── */
+footer{
+  padding:1rem 2rem;
+  text-align:center;
+  background:#000;
+  font-size:.8rem;
+  color:#cda434;
 }
