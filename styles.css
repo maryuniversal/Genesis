@@ -39,7 +39,7 @@ body{
   z-index:2000;
 }
 
-/* ─────────  Sticky-Header + Navigation  ───────── */
+/* ─────────  Sticky Header + Navigation  ───────── */
 header{
   position:sticky;
   top:0;
@@ -47,23 +47,41 @@ header{
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:1rem 2rem;
+
+  padding:1.3rem 2rem 1.1rem;
   background:rgba(0,18,28,.6);
   backdrop-filter:blur(6px);
   box-shadow:0 2px 6px rgba(0,0,0,.35);
 }
 
-nav{margin-top:.5rem;}
+header h1{
+  text-align:center;
+  letter-spacing:.02em;
+  line-height:1.15;
+  margin:.2rem 0 .4rem;
+  font-size:2.4rem;
+  color:var(--pink);
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.55rem 1.1rem;
+  margin-top:.6rem;
+}
 
 nav a{
   color:var(--cyan);
   text-decoration:none;
-  margin:0 .5rem;
-  font-size:.9rem;
+  font-size:.95rem;
+  padding:.15rem .35rem;
+  border-radius:10px;
 }
 
 nav a:hover{
   text-shadow:0 0 6px var(--cyan);
+  background:rgba(0,248,255,.06);
 }
 
 nav a[aria-current="page"]{
@@ -73,27 +91,8 @@ nav a[aria-current="page"]{
 }
 
 /* ─────────  Typography  ───────── */
-h1{color:var(--pink);}
 h2{color:var(--cyan);}
 h3{color:var(--lime);}
-
-/* ─────────  Optional Hero (falls du später nutzt)  ───────── */
-.hero{
-  padding:4rem 2rem;
-  text-align:center;
-}
-
-.hero h2{
-  font-size:1.8rem;
-  margin-bottom:1rem;
-  color:#cda434;
-}
-
-.hero p{
-  max-width:600px;
-  margin:0 auto;
-  font-size:1rem;
-}
 
 /* ─────────  Neon-Rahmen-Blöcke  ───────── */
 .neon-block{
@@ -104,9 +103,12 @@ h3{color:var(--lime);}
   border-radius:12px;
   position:relative;
 
-  /* sofort sichtbar (Animation holen wir später per JS zurück) */
   opacity:1;
   transform:none;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 18px 60px rgba(0,0,0,.55);
 }
 
 .neon-block p{
@@ -125,7 +127,7 @@ h3{color:var(--lime);}
      #ff007c 0%, #ff9800 25%, #ffeb3b 50%,
      #00ff9f 75%, #00e5ff 100%);
   filter:blur(4px);
-  opacity:.85;
+  opacity:.95;
 }
 
 .neon-block::before{
@@ -140,7 +142,7 @@ h3{color:var(--lime);}
   border-bottom-right-radius:12px;
 }
 
-/* ─────────  Neon-Buttons  ───────── */
+/* ─────────  Neon-Buttons (optional)  ───────── */
 .button-neon{
   display:inline-block;
   margin:.3rem .6rem;
@@ -166,4 +168,11 @@ footer{
   background:#000;
   font-size:.8rem;
   color:#cda434;
+}
+
+/* ─────────  Mobile polish  ───────── */
+@media (max-width:520px){
+  header h1{font-size:2.05rem;}
+  nav a{font-size:.95rem;}
+  .neon-block{margin:2.2rem 1rem;}
 }
