@@ -1,15 +1,14 @@
-// script.js  – einfacher Intersection-Observer
+// script.js – Neon-Block beim Scrollen weich einblenden
 document.addEventListener('DOMContentLoaded', () => {
-  const blocks = document.querySelectorAll('.neon-block');
+  const heroBlock = document.querySelector('.neon-block');
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    },
-    { threshold: 0.15 }
-  );
+  const showBlock = () => {
+    const trigger = window.innerHeight * 0.75;       // 75 % der Viewport-Höhe
+    const top     = heroBlock.getBoundingClientRect().top;
 
-  blocks.forEach(b => observer.observe(b));
+    if (top < trigger) heroBlock.classList.add('show');
+  };
+
+  window.addEventListener('scroll', showBlock);
+  showBlock();   // sofort prüfen, falls Block schon im Sichtfeld ist
 });
