@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* ─────────  Basis  ───────── */
 *{box-sizing:border-box;margin:0;padding:0;}
 
@@ -73,7 +75,7 @@ nav{
 nav a{
   color:var(--cyan);
   text-decoration:none;
-  font-size:.95rem;
+  font-size:.9rem;
   padding:.15rem .35rem;
   border-radius:10px;
 }
@@ -93,24 +95,6 @@ nav a[aria-current="page"]{
 h2{color:var(--cyan);}
 h3{color:var(--lime);}
 
-/* ─────────  Optional Hero (falls du später nutzt)  ───────── */
-.hero{
-  padding:4rem 2rem;
-  text-align:center;
-}
-
-.hero h2{
-  font-size:1.8rem;
-  margin-bottom:1rem;
-  color:#cda434;
-}
-
-.hero p{
-  max-width:600px;
-  margin:0 auto;
-  font-size:1rem;
-}
-
 /* ─────────  Neon-Rahmen-Blöcke  ───────── */
 .neon-block{
   margin:3rem auto;
@@ -119,6 +103,7 @@ h3{color:var(--lime);}
   background:#111;
   border-radius:12px;
   position:relative;
+
   opacity:1;
   transform:none;
 
@@ -186,6 +171,26 @@ footer{
   color:#cda434;
 }
 
+/* ─────────  Siegel-Zeile  ───────── */
+.seal-line{
+  color:#cda434;
+  font-weight:600;
+  letter-spacing:.02em;
+  margin-bottom:.75rem;
+  text-align:center;
+  text-shadow:0 0 12px rgba(205,164,52,.18);
+}
+
+/* Optional: Bild-Styling (wenn du es aktivierst) */
+.about-image{
+  width:100%;
+  height:auto;
+  border-radius:12px;
+  margin-top:1rem;
+  box-shadow:0 18px 60px rgba(0,0,0,.55);
+}
+
+/* ─────────  Mobile  ───────── */
 @media (max-width:520px){
   header h1{font-size:2.05rem;}
   nav a{font-size:.95rem;}
